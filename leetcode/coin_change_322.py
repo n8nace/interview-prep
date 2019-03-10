@@ -15,4 +15,4 @@ class Solution(object):
                 if coin <= a:
                     min_coins[a] = min(min_coins[a], min_coins[a-coin] + 1)
         
-        return -1 if min_coins[a] == amount+1 else min_coins[a]
+        return -1 if min_coins[amount] == amount+1 else min_coins[amount]
