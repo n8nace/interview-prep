@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  gather_facts: False
+  pre_tasks:
+    - name: Run install
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  tasks:
+  - include_role:
+      name: parking

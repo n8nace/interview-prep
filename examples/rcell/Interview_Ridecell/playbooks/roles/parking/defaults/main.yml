@@ -1,0 +1,4 @@
+git_dest: '/home/ubuntu/parking'
+git_src: 'https://github.com/devopsinterview/ParkingFinderAPIs'
+
+aws_host: 'ec2-54-186-143-132.us-west-2.compute.amazonaws.com'

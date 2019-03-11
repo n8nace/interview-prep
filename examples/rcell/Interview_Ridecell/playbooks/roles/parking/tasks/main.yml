@@ -1,0 +1,22 @@
+- name: Install python pip
+  apt:
+    name: python-pip
+    update_cache: yes
+
+- name: Clone git repo
+  git:
+    repo: "{{ git_src }}"
+    dest: "{{ git_dest }}"
+    force: yes
+
+- name: Install pip dependencies
+  shell: "pip install -r {{ git_dest }}/parking_finder_project/requirements.txt"
+
+- name: Replace line in ALLOWED_HOSTS
+  lineinfile:
+    path: "{{ git_dest }}/parking_finder_project/parking_finder_project/settings.py"
+    regexp: "^ALLOWED_HOSTS = "
+    line: "ALLOWED_HOSTS = ['{{ aws_host }}']"
+
+- name: Start Server
+  shell: "nohup python {{ git_dest }}/parking_finder_project/manage.py runserver 0.0.0.0:8000 &"
