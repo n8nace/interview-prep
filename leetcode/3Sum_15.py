@@ -1,29 +1,32 @@
-class Solution(object):
-    def threeSum(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        n = len(nums)
-        triplets=[]
-        nums.sort()
-        for i in range(n-2):
-            if i > 0 and nums[i] == nums[i-1]:
-                continue
-            l, r = i+1, len(nums)-1
-            while l < r:
-                s = nums[i] + nums[l] + nums[r]
-                if s < 0:
+def threeSum(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: List[List[int]]
+    """
+    n = len(nums)
+    triplets=[]
+    nums.sort()
+    for i in range(n-2):
+        if i > 0 and nums[i] == nums[i-1]:
+            continue
+        l, r = i+1, len(nums)-1
+        while l < r:
+            s = nums[i] + nums[l] + nums[r]
+            if s < 0:
+                l += 1
+            elif s > 0:
+                r -= 1
+            else:
+                twitch = [nums[i],nums[l],nums[r]]
+                triplets.append(twitch)
+                while l < r and nums[l] == nums[l+1]:
                     l += 1
-                elif s > 0:
+                while l < r and nums[r] == nums[r-1]:
                     r -= 1
-                else:
-                    twitch = [nums[i],nums[l],nums[r]]
-                    triplets.append(twitch)
-                    while l < r and nums[l] == nums[l+1]:
-                        l += 1
-                    while l < r and nums[r] == nums[r-1]:
-                        r -= 1
-                    l += 1
-                    r -= 1
-        return triplets
+                l += 1
+                r -= 1
+    return triplets
+
+nums = [-1, 0, 1, 2, -1, -4]
+nums2 = [-1,-2,-3,4,1,3,0,3,-2,1,-2,2,-1,1,-5,4,-3]
+threeSum(nums)
