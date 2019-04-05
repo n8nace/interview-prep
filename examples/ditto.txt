@@ -1,0 +1,49 @@
+DevOps Skills Assessment
+Welcome to your devops skills assessment, Nathaniel! This test should simulate and prepare you for what it would be like to work on our DevOps team here at Ditto. You will be evaluated on a few key elements. These include some traditional System Administrator tasks, as well as some scripting, and lastly, some in depth debugging/troubleshooting.
+
+During this evaluation, you are free to use any tools available to you to complete the task.
+
+Scenario 1 -- Full Disk: SysLog Server
+We've all been here, right? You're sleeping soundly... dreaming nice dreams.. when.... BEEP BEEP BEEP..... BEEP BEEP BEEP... your pagerduty triggers and you wake to the blaring hell that is 'Disk Out of Space' on your syslog server...
+
+Like any reasonable engineer, you get out of bed, get to your machine, and dive in to fix it... but there is as usual, a detail you have to be aware of... This is an active syslog server, so there are of course open files that you cannot risk losing.... So what do you do? You delete everything but those files..
+
+Steps:
+Enter the sysadmin directory
+
+Extract delete_test.gz
+
+Enter delete_Files_not_dir directory and delete files NOT matching the following pattern:
+
+[a-z]?[0-9]{3}[a-z]?
+Scenario 2 -- Contractor Rage -- SCREW YOU! I quit!
+So... it happens... You work with someone, and things take a turn... and not an all that pleasant one, either. Your former coworker was tasked with writing a script to perform an ETL on some data, and they did.. but you aren't quite sure wether the script can be trusted. Now, it's you that has to ascertain the state of the script they wrote. Is it safe for use in production? Can you fix it? Do you rewrite it? UP TO YOU!
+
+Steps:
+Enter the scripting directory
+Edit the file input_data and substitute your data for ApplicantBlah and ensure all data is correct.
+Now that you have prepared the input, you have several options for how to proceed. We leave that decision up to you.
+
+Viable Solution Methods:
+Read through fix_me.sh and identify any issues you can that may exist in it
+
+Communicate these back to the evaluation team.
+
+Attempt to correct any issues that may be present in fix_me.sh and execute it yourself.
+
+Write your own script in any language you are comfortable with. The script you write must fulfill the below requirements:
+
+Reads the input_data file
+Generates the output file as illustrated below:
+The output is TSV with HEADER
+
+First Name Last Name   Email
+Benjamin   Lee   benjamin@ditto.com
+Marc Mercer   marc@ditto.com
+ApplicantFirstName  ApplicantLastName Applicant@Email
+Scenario 3 -- Research needs a newer package
+What is with your coworkers? Do they just not like finishing things? Or, like everyone else in the industry, is there just so much on their plate that priorities keep getting shifted and team members reassigned... Research is in luck! You're the new person taking on this project. Last time, it was Ashley Ketchum, who started to repackage opencv for them, but she wasnt able to finish. All she could do was zip up her progress, and save it. Now, you have the archive, and pick up right where she left off before transfering to her new position, Lead Architect! Congrats Ashley!
+
+Steps:
+Enter the troubleshooting directory
+Build the opencv binary
